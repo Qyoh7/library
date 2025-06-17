@@ -10,6 +10,7 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         Library lib = new Library();
+        
         try 
         {
             BufferedWriter writer = new BufferedWriter(new FileWriter("library.txt"));

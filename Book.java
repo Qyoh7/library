@@ -14,55 +14,20 @@ public class Book
         this.status = status;
         this.rating = rating;
     }
-    public String getTitle()
-    {
-        return title;
-    }
+    public String getTitle() {return title;}
+    public void setTitle(String newTitle) { this.title = newTitle;}
 
-    public void setTitle(String newTitle)
-    {
-        this.title = newTitle;
-    }
+    public String getAuthor() { return author; }
+    public void setAuthor(String newAuthor) { this.author = newAuthor; }
 
-    public String getAuthor()
-    {
-        return author;
-    }
+    public String getGenre() { return genre; }
+    public void setGenre(String newGenre) { genre = newGenre; }
 
-    public void setAuthor(String newAuthor)
-    {
-        this.author = newAuthor;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String newStatus) { status = newStatus; }
 
-    public String getGenre()
-    {
-        return genre;
-    }
-
-    public void setGenre(String newGenre)
-    {
-        genre = newGenre;
-    }
-
-    public String getStatus()
-    {
-        return status;
-    }
-
-    public void setStatus(String newStatus)
-    {
-        status = newStatus;
-    }
-
-    public double getRating()
-    {
-        return this.rating;
-    }
-
-    public void setRating(double rating)
-    {
-        this.rating = rating;
-    }
+    public double getRating() { return this.rating; }
+    public void setRating(double rating) { this.rating = rating; }
 
     public String getStars() 
     {
