@@ -9,19 +9,11 @@ public class Main
     public static void main(String args[])
     {
         Scanner input = new Scanner(System.in);
-        Library lib = new Library();
-        
-        try 
-        {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("library.txt"));
-            writer.write("This is a huge test");
-            writer.close();
-        }
-        catch (IOException e) 
-        {
-            e.printStackTrace();
-        }
-
+        Book test = new Book("tmrw", "gabrielle zevin", "video games", "read", 5);
+        Book test2 = new Book("test2", "brandon mull", "thriller", "to-read", -1);
+        Book test3 = new Book("american history", "bob smith", "history", "read", 2.5);
+        Library lib = new Library(test, test2, test3);
+        lib.save("library.txt");
         
     }
 }

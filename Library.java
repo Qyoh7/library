@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 import java.io.FileWriter;
+import java.io.IO;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 public class Library
 {
@@ -28,35 +31,48 @@ public class Library
 
     public void save(String fileName)
     {
-        for (Book book : books)
-        {
-            writer.write(book.getTitle() + "\n");
-            writer.write(book.getAuthor() + "\n");
-            writer.write(book.getGenre() + "\n");
-            writer.write(book.getStatus() + "\n");
-            writer.write(book.getRating() + "\n");
+        try {
+            for (Book book : books)
+            {
+                writer.write(book.getTitle() + "\n");
+                writer.write(book.getAuthor() + "\n");
+                writer.write(book.getGenre() + "\n");
+                writer.write(book.getStatus() + "\n");
+                writer.write(book.getRating() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        writer.close();
     }
 
     public void load(String fileName)
     {
+        try {
+            Scanner reader = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         File file = new File(fileName);
-        Scanner reader = new Scanner(file);
-
+        ArrayList<String> libFile = new ArrayList<>();
         String line = "";
-        String title = "";
-        String author = "";
-        String genre = "";
-        String status = "";
-        String rating = "";
-    
-        while (line = reader.nextLine() != null)
+
+        while ((line = reader.nextLine()) != null)
         {
-            for (int i = 0; i < 4; i++)
-            {
-                
-            }
+            libFile.add(line);
+        }
+        reader.close();
+
+
+        for (int i = 0; i < libFile.size(); i+=5) 
+        {
+            Book tmp = new Book(
+                    libFile.get(i), 
+                    libFile.get(i+1), 
+                    libFile.get(i+2), 
+                    libFile.get(i+3), 
+                    Integer.parseInt(libFile.get(i+4)));
+            books.add(tmp);
         }
     }
     
